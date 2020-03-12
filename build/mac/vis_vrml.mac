@@ -1,0 +1,40 @@
+##########################################
+# for low-energy EM phys
+# https://geant4.web.cern.ch/node/1620
+/process/em/fluo true
+/process/em/auger true
+/process/em/augerCascade true 
+/process/em/pixe true
+/process/em/lowestElectronEnergy 0.1 eV
+/process/em/lowestMuHadEnergy 0.1 eV
+
+##########################################
+# range and enegry cuts
+#/run/setCut  0.100 mm
+/run/setCutForAGivenParticle gamma 0.001 mm
+/run/setCutForAGivenParticle e- 0.001 mm
+/run/setCutForAGivenParticle e+ 0.001 mm
+/run/setCutForAGivenParticle proton 0.010 mm
+
+/run/initialize
+
+##########################################
+# target material
+# should be defined in DetectorConstruction.cc
+/target/material NeGas1atm
+#/target/material NeGas05atm
+#/target/material NeGas01atm
+
+##########################################
+# to change target density
+# this will build new material pointer
+#/target/density 0.9005 mg/cm3
+#/target/density 0.09005 mg/cm3
+
+/control/verbose 1
+/vis/scene/create 
+/vis/open VRML2FILE
+/vis/drawVolume
+/vis/viewer/refresh
+/tracking/storeTrajectory 1
+/vis/scene/add/trajectories

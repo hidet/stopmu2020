@@ -1,0 +1,57 @@
+##########################################
+# for low-energy EM phys
+# https://geant4.web.cern.ch/node/1620
+/process/em/fluo true
+/process/em/auger true
+/process/em/augerCascade true 
+/process/em/pixe true
+/process/em/lowestElectronEnergy 0.1 eV
+/process/em/lowestMuHadEnergy 0.1 eV
+
+##########################################
+# range and enegry cuts
+#/run/setCut  0.100 mm
+/run/setCutForAGivenParticle gamma 0.001 mm
+/run/setCutForAGivenParticle e- 0.001 mm
+/run/setCutForAGivenParticle e+ 0.001 mm
+/run/setCutForAGivenParticle proton 0.010 mm
+
+/run/initialize
+
+##########################################
+# target material
+# should be defined in DetectorConstruction.cc
+/target/material NeGas090atm
+
+##########################################
+# particle name
+/beam/particle mu-
+# Z direction
+/beam/momentum/dir 0. 0. 1.
+# momentum bite +-%
+#/beam/momentum/bite 5.0
+#/beam/momentum/gaus 3.0
+/beam/momentum/gaus 10.0
+# beam position
+/beam/position/X 0. mm
+/beam/position/Y 0. mm
+/beam/position/Z -10. mm
+# beam position distribution
+#/beam/position/sigmaX 4.25 mm
+#/beam/position/sigmaY 8.49 mm
+#/beam/position/sigmaX 14.5 mm
+#/beam/position/sigmaY 23.0 mm
+/beam/position/sigmaZ 0.0 mm
+/beam/position/sigmaX 30.0 mm
+/beam/position/sigmaY 30.0 mm
+
+# beam momentum
+/beam/momentum/meanamp 23.0 MeV
+
+#########################################
+# file name
+/file/timenow false
+/file/name geant_mu-_mom230_gaus10_Ne090atm_gausbeam30_132air_075kapton
+
+
+/run/beamOn 10000

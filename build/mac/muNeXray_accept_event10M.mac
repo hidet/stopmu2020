@@ -1,0 +1,74 @@
+##########################################
+# for low-energy EM phys
+# https://geant4.web.cern.ch/node/1620
+/process/em/fluo true
+/process/em/auger true
+/process/em/augerCascade true 
+/process/em/pixe true
+/process/em/lowestElectronEnergy 0.1 eV
+/process/em/lowestMuHadEnergy 0.1 eV
+
+##########################################
+# range and enegry cuts
+#/run/setCut  0.100 mm
+/run/setCutForAGivenParticle gamma 0.001 mm
+/run/setCutForAGivenParticle e- 0.001 mm
+/run/setCutForAGivenParticle e+ 0.001 mm
+/run/setCutForAGivenParticle proton 0.010 mm
+
+/run/initialize
+
+##########################################
+# particle name
+#/beam/particle e-
+#/beam/particle mu-
+/beam/particle gamma
+# Z direction
+#/beam/momentum/dir 0. 0. 1.
+# beam momentum
+#/beam/momentum/meanamp 30 MeV
+/beam/momentum/meanamp 6300 eV
+# momentum bite +-%
+/beam/momentum/bite 0.0
+/beam/momentum/gaus 0.0
+# beam position
+/beam/position/X 0. mm
+/beam/position/Y 0. mm
+#/beam/position/Z -5. mm
+# beam position distribution
+#/beam/position/sigmaX 4.25 mm
+#/beam/position/sigmaY 8.49 mm
+#/beam/position/sigmaX 14.5 mm
+#/beam/position/sigmaY 23.0 mm
+#/beam/position/sigmaX 30.0 mm
+#/beam/position/sigmaY 30.0 mm
+/beam/position/sigmaX 32.0 mm
+/beam/position/sigmaY 37.0 mm
+/beam/position/sigmaZ 0.0 mm
+
+##########################################
+# target material
+# should be defined in DetectorConstruction.cc
+#/target/material NeGas100atm
+/target/material NeGas090atm
+#/target/material NeGas075atm
+#/target/material NeGas050atm
+#/target/material NeGas040atm
+#/target/material NeGas025atm
+#/target/material NeGas010atm
+#/target/material NeGas001atm
+
+#########################################
+# file name
+/file/timenow true
+#/file/name geant_muNeXray_Ne100atm_acceptance_10M
+/file/name geant_muNeXray_Ne090atm_acceptance_10M
+#/file/name geant_muNeXray_Ne075atm_acceptance_10M
+#/file/name geant_muNeXray_Ne050atm_acceptance_10M
+#/file/name geant_muNeXray_Ne040atm_acceptance_10M
+#/file/name geant_muNeXray_Ne025atm_acceptance_10M
+#/file/name geant_muNeXray_Ne010atm_acceptance_10M
+#/file/name geant_muNeXray_Ne001atm_acceptance_10M
+
+/run/beamOn 10000000
+#/run/beamOn 1000000
